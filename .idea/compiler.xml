@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="notification" />
+        <module name="shared-module" />
+        <module name="lottery" />
+        <module name="payment" />
+        <module name="eureka-server" />
+        <module name="open-feign" />
+        <module name="participant" />
+        <module name="authentication" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="authentication" target="11" />
+      <module name="eureka-server" target="11" />
+      <module name="kafka" target="11" />
+      <module name="lottery" target="11" />
+      <module name="lottery-app" target="1.7" />
+      <module name="notification" target="11" />
+      <module name="open-feign" target="11" />
+      <module name="participant" target="11" />
+      <module name="payment" target="11" />
+      <module name="shared-module" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authentication" options="" />
+      <module name="eureka-server" options="" />
+      <module name="kafka" options="-parameters" />
+      <module name="lottery" options="" />
+      <module name="notification" options="" />
+      <module name="open-feign" options="" />
+      <module name="participant" options="" />
+      <module name="payment" options="" />
+      <module name="shared-module" options="" />
+    </option>
+  </component>
+</project>

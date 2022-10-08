@@ -1,0 +1,114 @@
+
+services:
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    volumes:
+      - ./reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - participant
+      - authentication
+      - notification
+      - lottery
+    networks:
+      - spring
+
+  authentication:
+    image: ramzescode/authentication:latest
+    container_name: authentication
+    ports:
+      - "8081:8081"
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - eureka-server
+
+  eureka-server:
+    image: ramzescode/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - spring
+
+
+  lottery:
+    image: ramzescode/lottery:latest
+    container_name: lottery
+    ports:
+      - "8082:8082"
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - eureka-server
+
+
+  notification:
+    image: ramzescode/notification:latest
+    container_name: notification
+    ports:
+      - "8083:8083"
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - eureka-server
+
+  participant:
+    image: ramzescode/participant:latest
+    container_name: participant
+    ports:
+      - "8084:8084"
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - eureka-server
+
+#  payment:
+#    image: ramzescode/payment:latest
+#    container_name: payment
+#    ports:
+#      - "8085:8085"
+#    networks:
+#      - spring
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    depends_on:
+#      - eureka-server
+
+  payment_1:
+    image: ramzescode/payment:latest
+    container_name: payment_1
+    ports:
+      - "8085:8085"
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - eureka-server
+
+  payment_2:
+    image: ramzescode/payment:latest
+    container_name: payment_2
+    ports:
+      - "8088:8088"
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_PORT=8088
+
+networks:
+  spring:
+    driver: bridge

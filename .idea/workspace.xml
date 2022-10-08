@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="build-docker-image" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2ELKquMxDL8Ox9cTBQ9mGPy0zbl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/Users/RMo/IdeaProjects/lottery-app/pom.xml",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "67769c6c0ad77370f86aebd70694f752"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RMo\IdeaProjects\lottery-management" />
+      <recent name="C:\Users\RMo\IdeaProjects\lottery-management\site-content" />
+      <recent name="C:\Users\RMo\IdeaProjects\lottery-management\html" />
+      <recent name="C:\Users\RMo\IdeaProjects\lottery-management\shared2\src\main\java\classes" />
+      <recent name="C:\Users\RMo\IdeaProjects\lottery-management\shared2\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="authentication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.authentication.authentication.AuthenticationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eurekaserver.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KafkaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kafka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kafka.kafka.KafkaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LotteryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="lottery" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lottery.lottery.LotteryApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="notification" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.notification.notification.NotificationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenFeignApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="open-feign" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.openfeign.openfeign.OpenFeignApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParticipantApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="participant" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.participant.participant.ParticipantApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaymentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="payment" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.payment.payment.PaymentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.nginx: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="nginx" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.payment: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="payment" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.payment_1: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="payment_1" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.payment_2: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="payment_2" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.nginx: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.payment_2: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.payment_1: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.payment: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="" />
+      <created>1662369621751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662369621751</updated>
+      <workItem from="1662534744543" duration="6372000" />
+      <workItem from="1662558457537" duration="12000" />
+      <workItem from="1662637057168" duration="3834000" />
+      <workItem from="1662641426113" duration="5294000" />
+      <workItem from="1662661358195" duration="33146000" />
+      <workItem from="1662964291570" duration="59000" />
+      <workItem from="1662982627833" duration="948000" />
+      <workItem from="1663051345704" duration="6073000" />
+      <workItem from="1663074444359" duration="16904000" />
+      <workItem from="1663105069517" duration="1161000" />
+      <workItem from="1663106804501" duration="1288000" />
+      <workItem from="1663142695372" duration="7188000" />
+      <workItem from="1663152119682" duration="6000" />
+      <workItem from="1663237961150" duration="1100000" />
+      <workItem from="1663239150972" duration="36000" />
+      <workItem from="1663254661581" duration="4021000" />
+      <workItem from="1663312698501" duration="1867000" />
+      <workItem from="1663756830066" duration="1663000" />
+      <workItem from="1663759660075" duration="4969000" />
+      <workItem from="1665136061756" duration="5020000" />
+      <workItem from="1665141687297" duration="3221000" />
+      <workItem from="1665152452984" duration="7575000" />
+      <workItem from="1665224589677" duration="861000" />
+      <workItem from="1665225467430" duration="2630000" />
+      <workItem from="1665228357506" duration="172000" />
+      <workItem from="1665228544754" duration="321000" />
+      <workItem from="1665229093629" duration="1713000" />
+      <workItem from="1665251361088" duration="352000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/participant" />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+</project>
