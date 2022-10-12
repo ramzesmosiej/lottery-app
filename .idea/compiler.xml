@@ -8,9 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
-        <module name="shared-module" />
-        <module name="lottery" />
+        <module name="kafka-app" />
+        <module name="base-classes" />
         <module name="payment" />
+        <module name="lottery" />
         <module name="eureka-server" />
         <module name="open-feign" />
         <module name="participant" />
@@ -19,28 +20,15 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="authentication" target="11" />
+      <module name="base-classes" target="11" />
       <module name="eureka-server" target="11" />
-      <module name="kafka" target="11" />
+      <module name="kafka-app" target="1.8" />
       <module name="lottery" target="11" />
       <module name="lottery-app" target="1.7" />
       <module name="notification" target="11" />
       <module name="open-feign" target="11" />
       <module name="participant" target="11" />
       <module name="payment" target="11" />
-      <module name="shared-module" target="11" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="authentication" options="" />
-      <module name="eureka-server" options="" />
-      <module name="kafka" options="-parameters" />
-      <module name="lottery" options="" />
-      <module name="notification" options="" />
-      <module name="open-feign" options="" />
-      <module name="participant" options="" />
-      <module name="payment" options="" />
-      <module name="shared-module" options="" />
-    </option>
   </component>
 </project>

@@ -1,6 +1,6 @@
 package com.openfeign.openfeign.clients;
 
-import com.shared2.classes.Participant;
+import DTO.Participant;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;

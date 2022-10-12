@@ -1,6 +1,6 @@
 package com.participant.participant.model;
 
-import com.shared2.classes.Participant;
+import DTO.Participant;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
 package com.notification.notification.controller;
 
-import com.shared2.classes.Notification;
-import com.shared2.classes.NotificationBody;
+import DTO.Notification;
+import DTO.NotificationBody;
 import com.notification.notification.model.NotificationRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

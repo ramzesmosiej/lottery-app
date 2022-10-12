@@ -1,6 +1,6 @@
 package com.notification.notification.model;
 
-import com.shared2.classes.Notification;
+import DTO.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

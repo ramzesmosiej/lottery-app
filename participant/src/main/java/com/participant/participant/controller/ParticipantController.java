@@ -1,8 +1,8 @@
 package com.participant.participant.controller;
 
+import DTO.Participant;
 import com.openfeign.openfeign.clients.AuthenticationClient;
 import com.participant.participant.service.ParticipantService;
-import com.shared2.classes.Participant;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

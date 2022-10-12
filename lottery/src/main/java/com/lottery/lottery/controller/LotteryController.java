@@ -1,10 +1,11 @@
 package com.lottery.lottery.controller;
 
+import DTO.LotteryEvent;
+import DTO.NotificationBody;
+import DTO.Participant;
 import com.lottery.lottery.service.LotteryService;
 import com.openfeign.openfeign.clients.NotificationClient;
 import com.openfeign.openfeign.clients.ParticipantClient;
-import com.shared2.classes.NotificationBody;
-import com.shared2.classes.Participant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
 
 @RequestMapping(path = "/play")
 @RestController
@@ -23,10 +26,13 @@ public class LotteryController {
     private static final Logger log = LoggerFactory.getLogger(LotteryController.class);
     private final NotificationClient notificationClient;
 
-    public LotteryController(LotteryService lotteryService, ParticipantClient participantClient, NotificationClient notificationClient) {
+    private final LotteryEventProducer lotteryEventProducer;
+
+    public LotteryController(LotteryService lotteryService, ParticipantClient participantClient, NotificationClient notificationClient, LotteryEventProducer lotteryEventProducer) {
         this.lotteryService = lotteryService;
         this.participantClient = participantClient;
         this.notificationClient = notificationClient;
+        this.lotteryEventProducer = lotteryEventProducer;
     }
 
     @PostMapping("/{pesel}")
@@ -43,6 +49,8 @@ public class LotteryController {
         log.info("Player with pesel: " + pesel + "is playing lottery with a result" + isWon);
 
         notificationClient.createNotification(new NotificationBody(pesel, participant.getEmail(), "the result is " + isWon));
+        LotteryEvent event = new LotteryEvent(LocalDateTime.now(), pesel, isWon);
+        lotteryEventProducer.sendMessage(event);
         return ResponseEntity.ok("You played. The result will come per Email.");
     }
 

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableFeignClients("com.openfeign.openfeign")
 @SpringBootApplication
-@EntityScan(basePackages = "com.shared2.classes")
+@EntityScan(basePackages = "DTO")
 public class ParticipantApplication {
 
 	public static void main(String[] args) {

@@ -17,7 +17,7 @@
         <module>open-feign</module>
         <module>participant</module>
         <module>payment</module>
-        <module>shared-module</module>
+        <module>base-classes</module>
     </modules>
 
 

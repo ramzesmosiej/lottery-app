@@ -9,6 +9,7 @@ services:
       - "2181:2181"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+      - ZOOKEEPER_CLIENT_PORT=2181
 
   kafka:
     image: bitnami/kafka:latest
@@ -17,10 +18,13 @@ services:
       - spring
     ports:
       - "9092:9092"
+      - "29092:29092"
     environment:
       - KAFKA_BROKER_ID=1
-      - KAFKA_LISTENERS=PLAINTEXT://:9092
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://10.5.0.1:9092
+      - KAFKA_LISTENERS=LOCAL_HOST://:9092, CLIENT://:29092
+      - KAFKA_ADVERTISED_LISTENERS=LOCAL_HOST://localhost:9092, CLIENT://kafka:29092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=LOCAL_HOST:PLAINTEXT,CLIENT:PLAINTEXT
+      - KAFKA_INTER_BROKER_LISTENER_NAME=LOCAL_HOST
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
@@ -86,6 +90,7 @@ services:
       - spring
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     depends_on:
       - eureka-server
 

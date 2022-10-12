@@ -1,7 +1,7 @@
 package com.openfeign.openfeign.clients;
 
-import com.shared2.classes.Notification;
-import com.shared2.classes.NotificationBody;
+import DTO.Notification;
+import DTO.NotificationBody;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

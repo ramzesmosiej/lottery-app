@@ -1,6 +1,6 @@
 package com.participant.participant.service;
 
-import com.shared2.classes.Participant;
+import DTO.Participant;
 import com.participant.participant.controller.ParticipantRegistrationRequest;
 import com.participant.participant.model.ParticipantRepository;
 import org.springframework.http.ResponseEntity;

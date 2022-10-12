@@ -1,0 +1,5 @@
+DTO\Participant.class
+DTO\NotificationBody$NotificationBodyBuilder.class
+DTO\LotteryEvent.class
+DTO\Notification.class
+DTO\NotificationBody.class
