@@ -39,5 +39,7 @@ We create a new listener called LOCAL_HOST using port 29092 and the new advertis
 
 The existing listener (PLAINTEXT) remains unchanged. We also need to specify KAFKA_LISTENER_SECURITY_PROTOCOL_MAP. This previously used a default value for the single listener, but now that we’ve added another, we need to configure it explicitly.
 
-The next step is to configure lottery module which will produce messages and notification module which will consume messages and send email
+The next step is to configure lottery module which will produce messages and notification module which will consume messages and send email.
+useful links: https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
+https://rmoff.net/2018/08/02/kafka-listeners-explained/
 
