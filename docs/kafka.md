@@ -32,3 +32,12 @@
     depends_on:
       - zookeeper
 ```
+In my case both producer and consumer and also kafka broker run in docker network on my host machine
+so kafka broker name is kafka (inherited from container name), therefore in advertised listener that should be included
+Another listener(localhost) is for clients that will run locally and connect to kafka that runs in docker.
+We create a new listener called LOCAL_HOST using port 29092 and the new advertised.listener is on localhost. Because it’s on a different port, we change the ports mapping (exposing 29092 instead of 9092).
+
+The existing listener (PLAINTEXT) remains unchanged. We also need to specify KAFKA_LISTENER_SECURITY_PROTOCOL_MAP. This previously used a default value for the single listener, but now that we’ve added another, we need to configure it explicitly.
+
+The next step is to configure lottery module which will produce messages and notification module which will consume messages and send email
+
