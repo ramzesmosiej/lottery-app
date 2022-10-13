@@ -18,6 +18,7 @@
         <module>participant</module>
         <module>payment</module>
         <module>base-classes</module>
+        <module>socials</module>
     </modules>
 
 

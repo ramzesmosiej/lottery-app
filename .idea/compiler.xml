@@ -12,6 +12,7 @@
         <module name="base-classes" />
         <module name="payment" />
         <module name="lottery" />
+        <module name="socials" />
         <module name="eureka-server" />
         <module name="open-feign" />
         <module name="participant" />
@@ -29,6 +30,12 @@
       <module name="open-feign" target="11" />
       <module name="participant" target="11" />
       <module name="payment" target="11" />
+      <module name="socials" target="1.7" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="socials" options="" />
+    </option>
   </component>
 </project>

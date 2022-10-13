@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/open-feign/open-feign.iml" filepath="$PROJECT_DIR$/open-feign/open-feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/participant/participant.iml" filepath="$PROJECT_DIR$/participant/participant.iml" />
       <module fileurl="file://$PROJECT_DIR$/payment/payment.iml" filepath="$PROJECT_DIR$/payment/payment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/socials/socials.iml" filepath="$PROJECT_DIR$/socials/socials.iml" />
     </modules>
   </component>
 </project>

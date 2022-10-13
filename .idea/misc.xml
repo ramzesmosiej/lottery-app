@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/kafka-app/pom.xml" />
         <option value="$PROJECT_DIR$/lottery/pom.xml" />
         <option value="$PROJECT_DIR$/open-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/socials/pom.xml" />
       </list>
     </option>
   </component>
