@@ -5,31 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="commit test">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_javafaker_javafaker_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_mifmif_generex_1_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dk_brics_automaton_automaton_1_11_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_android_1_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/CV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5a9d766b-6e7b-40a2-90ec-9051721e8584.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5a9d766b-6e7b-40a2-90ec-9051721e8584/storage_v2/_src_/database/ramzescode.t3oXGg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5a9d766b-6e7b-40a2-90ec-9051721e8584/storage_v2/_src_/database/ramzescode.t3oXGg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5a9d766b-6e7b-40a2-90ec-9051721e8584/storage_v2/_src_/database/ramzescode.t3oXGg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/Following.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6be3909-db7a-471f-94a6-81c63ca65799.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6be3909-db7a-471f-94a6-81c63ca65799.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6be3909-db7a-471f-94a6-81c63ca65799/storage_v2/_src_/database/socials.ptZ6hg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c6be3909-db7a-471f-94a6-81c63ca65799/storage_v2/_src_/database/socials.ptZ6hg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/socials/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/Follow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/Like.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/PostLike.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/PostLikesId.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/FollowRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/LikeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/CVRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +288,7 @@
       <workItem from="1665496172482" duration="33918000" />
       <workItem from="1665641975219" duration="18473000" />
       <workItem from="1665728883311" duration="18209000" />
-      <workItem from="1665842247184" duration="17253000" />
+      <workItem from="1665842247184" duration="21459000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1665310275390</created>

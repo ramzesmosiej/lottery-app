@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>1225</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1235</IntrospectionStateNumber>
       <ServerVersion>14.5</ServerVersion>
       <StartupTime>1665703165</StartupTime>
       <TimeZones>true ACDT
@@ -809,7 +809,7 @@ false Zulu
 13388||10|C|G
 13388||-9223372036854775808|U|G
 13388||10|U|G</Grants>
-      <IntrospectionStateNumber>1225</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1235</IntrospectionStateNumber>
       <ObjectId>16403</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4234,7 +4234,7 @@ false Zulu
     <schema id="264" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1225</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1235</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>527</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4263,59 +4263,65 @@ false Zulu
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="269" parent="264" name="post">
+    <table id="269" parent="264" name="following">
+      <ObjectId>16516</ObjectId>
+      <StateNumber>1229</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="270" parent="264" name="post">
       <ObjectId>16490</ObjectId>
       <StateNumber>1184</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="270" parent="264" name="post_likes">
+    <table id="271" parent="264" name="post_likes">
       <ObjectId>16503</ObjectId>
       <StateNumber>1221</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="271" parent="264" name="user_account">
+    <table id="272" parent="264" name="user_account">
       <ObjectId>16475</ObjectId>
       <StateNumber>1018</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="272" parent="268" name="id">
+    <column id="273" parent="268" name="id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1014</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="273" parent="268" name="age">
+    <column id="274" parent="268" name="age">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1014</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="274" parent="268" name="bio">
+    <column id="275" parent="268" name="bio">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1014</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="275" parent="268" name="email">
+    <column id="276" parent="268" name="email">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1014</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="276" parent="268" name="user_id">
+    <column id="277" parent="268" name="user_id">
       <DataType>bigint|0s</DataType>
       <Position>5</Position>
       <StateNumber>1014</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="277" parent="268" name="fki82i0n95qu11h3l0miibt1dbe">
+    <foreign-key id="278" parent="268" name="fki82i0n95qu11h3l0miibt1dbe">
       <ColNames>user_id</ColNames>
       <ObjectId>16484</ObjectId>
       <RefColNames>id</RefColNames>
@@ -4325,7 +4331,7 @@ false Zulu
       <RefTableName>user_account</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="278" parent="268" name="cv_pkey">
+    <index id="279" parent="268" name="cv_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16473</ObjectId>
@@ -4334,56 +4340,107 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="279" parent="268" name="cv_pkey">
+    <key id="280" parent="268" name="cv_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16474</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1014</StateNumber>
       <UnderlyingIndexId>16473</UnderlyingIndexId>
     </key>
-    <column id="280" parent="269" name="id">
+    <column id="281" parent="269" name="follower_id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1228</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="282" parent="269" name="following_id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1228</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="283" parent="269" name="fkah7jcklopeksgjmrb2h32jshk">
+      <ColNames>follower_id</ColNames>
+      <ObjectId>16521</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1229</StateNumber>
+      <RefTableId>16475</RefTableId>
+      <RefTableName>user_account</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="284" parent="269" name="fknrh1k7k3431vu2x1eviwiappq">
+      <ColNames>following_id</ColNames>
+      <ObjectId>16526</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1230</StateNumber>
+      <RefTableId>16475</RefTableId>
+      <RefTableName>user_account</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="285" parent="269" name="following_pkey">
+      <ColNames>follower_id
+following_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16519</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1228</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="286" parent="269" name="following_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16520</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1228</StateNumber>
+      <UnderlyingIndexId>16519</UnderlyingIndexId>
+    </key>
+    <column id="287" parent="270" name="id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1182</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="281" parent="269" name="content">
+    <column id="288" parent="270" name="content">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1182</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="282" parent="269" name="created_at">
+    <column id="289" parent="270" name="created_at">
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1182</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="283" parent="269" name="likes_number">
+    <column id="290" parent="270" name="likes_number">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1182</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="284" parent="269" name="title">
+    <column id="291" parent="270" name="title">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>1182</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="285" parent="269" name="user_id">
+    <column id="292" parent="270" name="user_id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>1182</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="286" parent="269" name="fk7ossp45hgowuwqeytd1c92v1s">
+    <foreign-key id="293" parent="270" name="fk7ossp45hgowuwqeytd1c92v1s">
       <ColNames>user_id</ColNames>
       <ObjectId>16498</ObjectId>
       <RefColNames>id</RefColNames>
@@ -4393,7 +4450,7 @@ false Zulu
       <RefTableName>user_account</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="287" parent="269" name="post_pkey">
+    <index id="294" parent="270" name="post_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16495</ObjectId>
@@ -4402,28 +4459,28 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="288" parent="269" name="post_pkey">
+    <key id="295" parent="270" name="post_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16496</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1182</StateNumber>
       <UnderlyingIndexId>16495</UnderlyingIndexId>
     </key>
-    <column id="289" parent="270" name="user_id">
+    <column id="296" parent="271" name="user_id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1220</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="290" parent="270" name="post_id">
+    <column id="297" parent="271" name="post_id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1220</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="291" parent="270" name="fkdr6qq443tuhwyjo0cfbd23qpa">
+    <foreign-key id="298" parent="271" name="fkdr6qq443tuhwyjo0cfbd23qpa">
       <ColNames>user_id</ColNames>
       <ObjectId>16511</ObjectId>
       <RefColNames>id</RefColNames>
@@ -4433,7 +4490,7 @@ false Zulu
       <RefTableName>user_account</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="292" parent="270" name="fkmxmoc9p5ndijnsqtvsjcuoxm3">
+    <foreign-key id="299" parent="271" name="fkmxmoc9p5ndijnsqtvsjcuoxm3">
       <ColNames>post_id</ColNames>
       <ObjectId>16506</ObjectId>
       <RefColNames>id</RefColNames>
@@ -4443,35 +4500,35 @@ false Zulu
       <RefTableName>post</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <column id="293" parent="271" name="id">
+    <column id="300" parent="272" name="id">
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1015</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="294" parent="271" name="name">
+    <column id="301" parent="272" name="name">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1015</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="295" parent="271" name="password">
+    <column id="302" parent="272" name="password">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1015</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="296" parent="271" name="surname">
+    <column id="303" parent="272" name="surname">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1015</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="297" parent="271" name="user_account_pkey">
+    <index id="304" parent="272" name="user_account_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16480</ObjectId>
@@ -4480,7 +4537,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="298" parent="271" name="user_account_pkey">
+    <key id="305" parent="272" name="user_account_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16481</ObjectId>
       <Primary>1</Primary>

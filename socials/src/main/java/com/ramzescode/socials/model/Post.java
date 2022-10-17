@@ -3,7 +3,9 @@ package com.ramzescode.socials.model;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Post {
@@ -39,7 +41,7 @@ public class Post {
     private int likesNumber;
 
     @ManyToMany(mappedBy = "likedPosts")
-    private List<User> usersThatLikedThePost = new ArrayList<>();
+    private final Set<User> usersThatLikedThePost = new HashSet<>();
 
 
     public Post() {
@@ -64,7 +66,7 @@ public class Post {
         return user;
     }
 
-    public List<User> getUsersThatLikedThePost() {
+    public Set<User> getUsersThatLikedThePost() {
         return usersThatLikedThePost;
     }
 

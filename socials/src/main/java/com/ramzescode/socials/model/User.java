@@ -2,6 +2,7 @@ package com.ramzescode.socials.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +42,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "post_id")
     )
-    List<Post> likedPosts = new ArrayList<>();
+    Set<Post> likedPosts = new HashSet<>();
 
     public User(String name, String surname, String password) {
         this.name = name;
