@@ -25,9 +25,10 @@ public class User {
     private Long id;
     @Column(name = "name", nullable = false, columnDefinition = "TEXT")
     private String name;
-
     @Column(name = "surname", nullable = false, columnDefinition = "TEXT")
     private String surname;
+    @Column(name = "email", nullable = false)
+    private String email;
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
     private String password;
     @OneToOne(mappedBy = "user", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
@@ -44,10 +45,11 @@ public class User {
     )
     Set<Post> likedPosts = new HashSet<>();
 
-    public User(String name, String surname, String password) {
+    public User(String name, String surname, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.password = password;
+        this.email = email;
     }
 
     public User() {
@@ -78,6 +80,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {

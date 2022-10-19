@@ -34,7 +34,7 @@ public class SocialsApplication {
             Faker faker = new Faker();
             String name = faker.name().name();
             String surname = String.format("%son", name);
-            User user = new User(name, surname, faker.funnyName().name());
+            User user = new User(name, surname, "ramzes@gmail.com", faker.funnyName().name());
             Post post1 = new Post("post1", LocalDateTime.now(), "content1", 0);
             user.addPost(post1);
             user.addPost(new Post("post2", LocalDateTime.now(), "content2", 0));
@@ -42,7 +42,6 @@ public class SocialsApplication {
             user.setCv(new CV(user, 22, "email", "bio"));
             user.likePost(post1);
             userRepository.save(user);
-//            cvRepository.save(new CV(user, 22, "email", "bio"));
 
 
             userRepository.findAll(Sort.by(Sort.Direction.ASC, "name").and(Sort.by(Sort.Direction.ASC, "password")))
@@ -50,17 +49,6 @@ public class SocialsApplication {
             PageRequest pageRequest = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
             Page<User> page = userRepository.findAll(pageRequest);
             System.out.println(page);
-//            User ramzes = new User("Ramzes", "Mosiej", "password");
-//            cvRepository.save(new CV(ramzes, 22, "email", "bio"));
-//            cvRepository.findById(2L).ifPresent(System.out::println);
-//            User ramzes = new User("Ramzes", "Mosiej", "password");
-//            User marek = new User("Marek", "Rzemieniecki", "password1");
-//            userRepository.saveAll(List.of(ramzes, marek));
-//            System.out.println(userRepository.count());
-//            userRepository.findById(2L).ifPresentOrElse(System.out::println,
-//                    () -> System.out.println("User with id 2 not found"));
-//            System.out.println(userRepository.findUserBySurnameEqualsAndIdEquals("Mosiej", 1L));
-//            userRepository.deleteUserById(1L);
         };
     }
 }

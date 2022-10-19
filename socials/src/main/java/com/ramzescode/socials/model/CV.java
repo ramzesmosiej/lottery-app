@@ -19,7 +19,7 @@ public class CV {
             updatable = false
     )
     private Long id;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "id",
