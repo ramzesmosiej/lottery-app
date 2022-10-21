@@ -25,7 +25,7 @@ public class CV {
             referencedColumnName = "id",
             nullable = false
     )
-    private User user;
+    private AppUser appUser;
     @Column(name = "age", nullable = false)
     private int age;
     @Column(name = "email", nullable = false)
@@ -41,12 +41,12 @@ public class CV {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public AppUser getUser() {
+        return appUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public int getAge() {
@@ -76,8 +76,8 @@ public class CV {
     public CV() {
     }
 
-    public CV(User user, int age, String email, String bio) {
-        this.user = user;
+    public CV(AppUser appUser, int age, String email, String bio) {
+        this.appUser = appUser;
         this.age = age;
         this.email = email;
         this.bio = bio;
@@ -87,7 +87,7 @@ public class CV {
     public String toString() {
         return "CV{" +
                 "id=" + id +
-                ", user=" + user +
+                ", user=" + appUser +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", bio='" + bio + '\'' +

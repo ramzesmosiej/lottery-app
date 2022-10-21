@@ -6,18 +6,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity(name = "User")
-@Table(name = "user_account")
-public class User {
+@Entity(name = "AppUser")
+@Table(name = "app_user")
+public class AppUser {
     @Id
     @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
+            name = "app_user_sequence",
+            sequenceName = "app_user_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence")
+            generator = "app_user_sequence")
     @Column(
             name = "id",
             updatable = false
@@ -31,9 +31,9 @@ public class User {
     private String email;
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
     private String password;
-    @OneToOne(mappedBy = "user", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToOne(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private CV cv;
-    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private final List<Post> posts = new ArrayList<>();
     @ManyToMany(
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
@@ -45,14 +45,14 @@ public class User {
     )
     Set<Post> likedPosts = new HashSet<>();
 
-    public User(String name, String surname, String email, String password) {
+    public AppUser(String name, String surname, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.password = password;
         this.email = email;
     }
 
-    public User() {
+    public AppUser() {
     }
 
     public void addPost(Post post) {

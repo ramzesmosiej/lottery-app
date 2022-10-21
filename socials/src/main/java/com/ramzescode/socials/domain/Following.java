@@ -11,17 +11,17 @@ public class Following {
     @ManyToOne
     @MapsId("followerId")
     @JoinColumn(name = "follower_id")
-    User follower;
+    AppUser follower;
 
     @ManyToOne
     @MapsId("followingId")
     @JoinColumn(name = "following_id")
-    User following;
+    AppUser following;
 
     public Following() {
     }
 
-    public Following(User follower, User following) {
+    public Following(AppUser follower, AppUser following) {
         this.follower = follower;
         this.following = following;
     }
@@ -34,19 +34,19 @@ public class Following {
         this.id = id;
     }
 
-    public User getFollower() {
+    public AppUser getFollower() {
         return follower;
     }
 
-    public void setFollower(User follower) {
+    public void setFollower(AppUser follower) {
         this.follower = follower;
     }
 
-    public User getFollowing() {
+    public AppUser getFollowing() {
         return following;
     }
 
-    public void setFollowing(User following) {
+    public void setFollowing(AppUser following) {
         this.following = following;
     }
 }

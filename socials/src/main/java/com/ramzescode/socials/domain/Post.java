@@ -2,9 +2,7 @@ package com.ramzescode.socials.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,7 +28,7 @@ public class Post {
             referencedColumnName = "id",
             nullable = false
     )
-    private User user;
+    private AppUser appUser;
     @Column(name = "title", nullable = false)
     private String title;
     @Column(name = "created_at", nullable = false)
@@ -41,7 +39,7 @@ public class Post {
     private int likesNumber;
 
     @ManyToMany(mappedBy = "likedPosts")
-    private final Set<User> usersThatLikedThePost = new HashSet<>();
+    private final Set<AppUser> usersThatLikedThePost = new HashSet<>();
 
 
     public Post() {
@@ -62,16 +60,16 @@ public class Post {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public AppUser getUser() {
+        return appUser;
     }
 
-    public Set<User> getUsersThatLikedThePost() {
+    public Set<AppUser> getUsersThatLikedThePost() {
         return usersThatLikedThePost;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 
     public String getTitle() {
@@ -110,7 +108,7 @@ public class Post {
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", user=" + user +
+                ", user=" + appUser +
                 ", title='" + title + '\'' +
                 ", createdAt=" + createdAt +
                 ", content='" + content + '\'' +
