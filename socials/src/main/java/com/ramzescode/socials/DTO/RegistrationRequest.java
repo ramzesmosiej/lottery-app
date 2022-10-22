@@ -1,6 +1,6 @@
 package com.ramzescode.socials.DTO;
 
-import com.ramzescode.socials.model.User;
+import com.ramzescode.socials.domain.AppUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ public class RegistrationRequest {
     private String email;
     private String password;
 
-    public User toUser() {
-        return new User(name, surname, email, password);
+    public AppUser toUser() {
+        return new AppUser(name, surname, email, password);
     }
 }

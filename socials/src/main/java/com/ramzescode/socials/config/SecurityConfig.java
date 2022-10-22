@@ -1,62 +1,52 @@
 package com.ramzescode.socials.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ramzescode.socials.jwt.JwtTokenFilter;
+import com.ramzescode.socials.repository.UserRepository;
+import com.ramzescode.socials.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.util.concurrent.TimeUnit;
-
-import static com.ramzescode.socials.security.ApplicationUserRole.*;
+import static com.ramzescode.socials.security.Role.ADMIN;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
+    private final UserRepository userRepository;
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails firstUser = User.builder()
-                .username("ramzes")
-                .password(passwordEncoder().encode("password"))
-                .roles(USER.name())
-                .build();
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles(ADMIN.name())
-                .build();
-        return new InMemoryUserDetailsManager(firstUser, admin);
+    private final UserDetailsServiceImpl userDetailsService;
 
+    private final JwtTokenFilter jwtTokenFilter;
+
+    public SecurityConfig(UserRepository userRepository, UserDetailsServiceImpl userDetailsService, JwtTokenFilter jwtTokenFilter) {
+        this.userRepository = userRepository;
+        this.userDetailsService = userDetailsService;
+        this.jwtTokenFilter = jwtTokenFilter;
     }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+
+        http.cors().and()
                 .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/", "index").permitAll()
-                .antMatchers("/users**")
-                .hasAnyRole(USER.name(), ADMIN.name())
-                .anyRequest().authenticated().and().formLogin()
-                .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/posts", true)
-                .and().rememberMe()
-                .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
-                .key("secured").and()
-                .logout().logoutUrl("/logout").clearAuthentication(true).invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID", "remember-me")
-                .logoutSuccessUrl("/login");
+                .authorizeHttpRequests()
+                .antMatchers("/auth/login", "/auth/signup", "/ping").permitAll()
+                .antMatchers("api/users")
+                .hasRole(ADMIN.name())
+                .anyRequest().authenticated().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -64,4 +54,17 @@ public class SecurityConfig {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public AuthenticationManager authenticationManagerBean(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder builder = http.getSharedObject(AuthenticationManagerBuilder.class);
+        builder.eraseCredentials(false)
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder());
+        return builder.build();
+    }
+
+
+
+
 }

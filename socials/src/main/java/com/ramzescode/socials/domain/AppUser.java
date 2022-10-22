@@ -1,4 +1,8 @@
-package com.ramzescode.socials.model;
+package com.ramzescode.socials.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ramzescode.socials.security.Role;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -25,12 +29,18 @@ public class AppUser {
     private Long id;
     @Column(name = "name", nullable = false, columnDefinition = "TEXT")
     private String name;
-    @Column(name = "surname", nullable = false, columnDefinition = "TEXT")
-    private String surname;
+
+    @Column(name = "username", nullable = false, columnDefinition = "TEXT")
+    private String username;
     @Column(name = "email", nullable = false)
     private String email;
+    @JsonIgnore
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
     private String password;
+
+    @Column(name = "authorities")
+    @Transient
+    private Set<SimpleGrantedAuthority> authorities = new HashSet<>();
     @OneToOne(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private CV cv;
     @OneToMany(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
@@ -45,11 +55,12 @@ public class AppUser {
     )
     Set<Post> likedPosts = new HashSet<>();
 
-    public AppUser(String name, String surname, String email, String password) {
+    public AppUser(String name, String username, String email, String password) {
         this.name = name;
-        this.surname = surname;
-        this.password = password;
+        this.username = username;
         this.email = email;
+        this.password = password;
+
     }
 
     public AppUser() {
@@ -78,6 +89,16 @@ public class AppUser {
         return id;
     }
 
+
+
+    public Set<SimpleGrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<SimpleGrantedAuthority> authorities) {
+        this.authorities = authorities;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -98,12 +119,12 @@ public class AppUser {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

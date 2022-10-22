@@ -1,4 +1,4 @@
-package com.ramzescode.socials.model;
+package com.ramzescode.socials.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
