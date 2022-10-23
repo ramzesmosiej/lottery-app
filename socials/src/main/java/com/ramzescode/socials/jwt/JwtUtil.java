@@ -3,14 +3,11 @@ package com.ramzescode.socials.jwt;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.stream.Collectors;
 
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.ramzescode.socials.service.UserService;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import com.ramzescode.socials.service.AuthoritiesService;
 import org.springframework.stereotype.Service;
 
 
@@ -19,6 +16,12 @@ public class JwtUtil {
 
     private final String jwtSecret = "CctlD5JL16m8wLTgsFNhzqjQP";
 
+    private final AuthoritiesService authoritiesService;
+
+    public JwtUtil(AuthoritiesService authoritiesService) {
+        this.authoritiesService = authoritiesService;
+    }
+
 
     public String generateAccessToken(String username) {
         Algorithm algorithm = Algorithm.HMAC512(jwtSecret.getBytes());
@@ -26,6 +29,7 @@ public class JwtUtil {
 
         return JWT.create()
                 .withSubject(username)
+                .withClaim("roles", authoritiesService.getUserAuthorities(username))
                 .withExpiresAt(new Date(System.currentTimeMillis() + 5 * 60 * 1000))
                 .sign(algorithm);
     }

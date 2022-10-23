@@ -7,35 +7,14 @@
     <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="commit test">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c6be3909-db7a-471f-94a6-81c63ca65799.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f4d874f0-2805-4791-ad12-0698f892fa2d.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f4d874f0-2805-4791-ad12-0698f892fa2d/storage_v2/_src_/database/socials.ptZ6hg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f4d874f0-2805-4791-ad12-0698f892fa2d/storage_v2/_src_/database/socials.ptZ6hg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f4d874f0-2805-4791-ad12-0698f892fa2d/storage_v2/_src_/database/socials.ptZ6hg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f4d874f0-2805-4791-ad12-0698f892fa2d/storage_v2/_src_/database/socials.ptZ6hg/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kafka-app/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-app/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lottery/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/lottery/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/notification/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/open-feign/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/open-feign/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/participant/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/participant/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/payment/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/docs/database design.md" beforeDir="false" afterPath="$PROJECT_DIR$/socials/docs/database design.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/socials/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/socials/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/DTO/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/DTO/RegistrationRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/CV.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/CV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Following.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Following.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/CVRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/CVRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/security/Permission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/security/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -318,7 +297,7 @@
       <workItem from="1666076800880" duration="38701000" />
       <workItem from="1666250041054" duration="63125000" />
       <workItem from="1666434772855" duration="6106000" />
-      <workItem from="1666444889474" duration="10008000" />
+      <workItem from="1666444889474" duration="24465000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1665310275390</created>
@@ -364,6 +343,21 @@
           <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUsernameAndPasswordAuthenticationFilter.java</url>
           <line>49</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtAuthenticationProvider.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/controller/UserController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

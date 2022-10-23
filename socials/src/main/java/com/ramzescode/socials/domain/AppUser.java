@@ -1,14 +1,10 @@
 package com.ramzescode.socials.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ramzescode.socials.security.Role;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity(name = "AppUser")
 @Table(name = "app_user")
@@ -37,10 +33,6 @@ public class AppUser {
     @JsonIgnore
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
     private String password;
-
-    @Column(name = "authorities")
-    @Transient
-    private Set<SimpleGrantedAuthority> authorities = new HashSet<>();
     @OneToOne(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private CV cv;
     @OneToMany(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
@@ -54,6 +46,14 @@ public class AppUser {
             inverseJoinColumns = @JoinColumn(name = "post_id")
     )
     Set<Post> likedPosts = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "app_user_roles",
+            joinColumns = @JoinColumn(name = "appuser_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Collection<Role> roles = new ArrayList<>();
 
     public AppUser(String name, String username, String email, String password) {
         this.name = name;
@@ -89,16 +89,6 @@ public class AppUser {
         return id;
     }
 
-
-
-    public Set<SimpleGrantedAuthority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(Set<SimpleGrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -113,6 +103,14 @@ public class AppUser {
 
     public String getName() {
         return name;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
     public void setName(String name) {

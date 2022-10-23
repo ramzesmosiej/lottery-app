@@ -1,5 +1,6 @@
 package com.ramzescode.socials.config;
 
+import com.ramzescode.socials.jwt.JwtAuthenticationProvider;
 import com.ramzescode.socials.jwt.JwtTokenFilter;
 import com.ramzescode.socials.repository.UserRepository;
 import com.ramzescode.socials.service.UserDetailsServiceImpl;
@@ -15,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.ramzescode.socials.security.Role.ADMIN;
 
 @Configuration
 @EnableWebSecurity
@@ -26,11 +26,14 @@ public class SecurityConfig {
 
     private final UserDetailsServiceImpl userDetailsService;
 
+    private final JwtAuthenticationProvider jwtAuthenticationProvider;
+
     private final JwtTokenFilter jwtTokenFilter;
 
-    public SecurityConfig(UserRepository userRepository, UserDetailsServiceImpl userDetailsService, JwtTokenFilter jwtTokenFilter) {
+    public SecurityConfig(UserRepository userRepository, UserDetailsServiceImpl userDetailsService, JwtAuthenticationProvider jwtAuthenticationProvider, JwtTokenFilter jwtTokenFilter) {
         this.userRepository = userRepository;
         this.userDetailsService = userDetailsService;
+        this.jwtAuthenticationProvider = jwtAuthenticationProvider;
         this.jwtTokenFilter = jwtTokenFilter;
     }
 
@@ -42,8 +45,6 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .antMatchers("/auth/login", "/auth/signup", "/ping").permitAll()
-                .antMatchers("api/users")
-                .hasRole(ADMIN.name())
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
@@ -59,8 +60,7 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManagerBean(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder builder = http.getSharedObject(AuthenticationManagerBuilder.class);
         builder.eraseCredentials(false)
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder());
+                .authenticationProvider(jwtAuthenticationProvider);
         return builder.build();
     }
 

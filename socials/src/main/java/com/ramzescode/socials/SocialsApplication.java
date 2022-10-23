@@ -16,9 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDateTime;
 
-import static com.ramzescode.socials.security.Role.ADMIN;
-import static com.ramzescode.socials.security.Role.APP_USER;
-
 @SpringBootApplication
 public class SocialsApplication {
 
@@ -41,7 +38,6 @@ public class SocialsApplication {
             String password = bCryptPasswordEncoder.encode("password");
             String email = "ramzes@gmail.com";
             AppUser appUser = new AppUser(name, username, email, password);
-            appUser.setAuthorities(ADMIN.getGrantedAuthorities());
             Post post1 = new Post("post1", LocalDateTime.now(), "content1", 0);
             appUser.addPost(post1);
             appUser.addPost(new Post("post2", LocalDateTime.now(), "content2", 0));
