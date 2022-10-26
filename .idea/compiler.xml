@@ -30,7 +30,7 @@
       <module name="open-feign" target="11" />
       <module name="participant" target="11" />
       <module name="payment" target="11" />
-      <module name="socials" target="11" />
+      <module name="socials" target="14" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -40,8 +40,8 @@ public class SocialsApplication {
             List<Role> adminRoles = new ArrayList<>();
             adminRoles.add(adminRole);
             AppUser adminUser = new AppUser("Ramzes Admin", "admin", "admin@gmail.com", bCryptPasswordEncoder.encode("admin"), adminRoles);
-//            userRepository.save(adminUser);
-//            userRepository.save(appUser);
+            userRepository.save(adminUser);
+
 
 
             userRepository.findAll(Sort.by(Sort.Direction.ASC, "name").and(Sort.by(Sort.Direction.ASC, "password")))

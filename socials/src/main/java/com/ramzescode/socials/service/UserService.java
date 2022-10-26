@@ -4,6 +4,7 @@ import com.ramzescode.socials.DTO.RegistrationRequest;
 import com.ramzescode.socials.domain.AppUser;
 import com.ramzescode.socials.domain.Role;
 import com.ramzescode.socials.repository.UserRepository;
+import com.ramzescode.socials.rest.errors.LoginAlreadyUsedException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -67,24 +68,17 @@ public class UserService {
     }
 
 
-    public ResponseService registerUser(RegistrationRequest inputUser) {
-        ResponseService response = new ResponseService();
+    public AppUser registerUser(RegistrationRequest inputUser) {
         Optional<AppUser> userOptional = userRepository.findAppUserByUsername(inputUser.getUsername());
         if (userOptional.isPresent()) {
-            response.setStatus("fail");
-            response.setPayload(null);
-            response.setMessage("Username " + inputUser.getUsername() + " is already in use");
+            throw new LoginAlreadyUsedException(inputUser.getUsername());
         }
         else {
             AppUser appUserToSave = inputUser.toUser();
             appUserToSave.setPassword(encoder.encode(inputUser.getPassword()));
             appUserToSave.setRoles(new ArrayList<>(List.of(new Role("ROLE_USER"))));
-            AppUser savedAppUser = userRepository.save(appUserToSave);
-            response.setMessage("User created");
-            response.setPayload(savedAppUser);
-            response.setStatus("success");
+            return userRepository.save(appUserToSave);
         }
-        return response;
     }
 
     public void saveUser(AppUser user) {

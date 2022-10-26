@@ -30,7 +30,7 @@ public class AppUser {
     @Column(name = "email", nullable = false)
     private String email;
     @JsonIgnore
-    @Column(name = "password", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "password_hash", nullable = false, columnDefinition = "TEXT")
     private String password;
     @OneToOne(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private CV cv;
@@ -46,7 +46,7 @@ public class AppUser {
     )
     private Set<Post> likedPosts = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "app_user_roles",
             joinColumns = @JoinColumn(name = "appuser_id"),

@@ -2,6 +2,7 @@ package com.ramzescode.socials.rest;
 
 import com.ramzescode.socials.DTO.LoginRequest;
 import com.ramzescode.socials.DTO.RegistrationRequest;
+import com.ramzescode.socials.domain.AppUser;
 import com.ramzescode.socials.jwt.JwtUtil;
 import com.ramzescode.socials.service.ResponseService;
 import com.ramzescode.socials.service.UserService;
@@ -31,7 +32,7 @@ public class AuthController {
 
 
     @PostMapping("/signup")
-    public ResponseEntity<ResponseService> registerUser(@RequestBody RegistrationRequest inputUser) {
+    public ResponseEntity<AppUser> registerUser(@RequestBody RegistrationRequest inputUser) {
         return ResponseEntity.ok(userService.registerUser(inputUser));
     }
 
