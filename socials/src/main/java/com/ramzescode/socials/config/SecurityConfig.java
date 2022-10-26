@@ -44,7 +44,8 @@ public class SecurityConfig {
         http.cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .antMatchers("/auth/login", "/auth/signup", "/ping").permitAll()
+                .antMatchers("/auth/login", "/auth/signup", "/auth/ping").permitAll()
+                .antMatchers("/ping/admin").hasRole("ADMIN")
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);

@@ -1,6 +1,8 @@
 package com.ramzescode.socials.repository;
 
 import com.ramzescode.socials.domain.AppUser;
+import com.ramzescode.socials.rest.errors.EntityNotFoundException;
+import com.ramzescode.socials.security.SecurityUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 
@@ -28,4 +30,25 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
     void deleteUserById(Long id);
 
     Optional<AppUser> findAppUserByUsername(String username);
+
+    // login is the same as username
+    default AppUser getLoggedUser() {
+        String login = getCurrentUserLogin();
+        Optional<AppUser> appUser = findAppUserByUsername(login);
+        return appUser.orElseThrow(() -> new EntityNotFoundException("no user found with login " + login));
+    }
+    private String getCurrentUserLogin() {
+        Optional<String> currentUserLogin = SecurityUtils.getCurrentUserLogin();
+        if (currentUserLogin.isPresent()) {
+            return currentUserLogin.get();
+        }
+        throw new EntityNotFoundException("no logged user found");
+    }
+
+    default AppUser findAppUserByIdOrElseThrow(long id) {
+        return findById(id).orElseThrow(() -> new EntityNotFoundException("User", id));
+    }
+
+
+
 }

@@ -36,7 +36,7 @@ public class Post {
     @Column(name = "content", nullable = false)
     private String content;
     @Column(name = "likes_number", nullable = false)
-    private int likesNumber;
+    private int likesNumber = 0;
 
     @ManyToMany(mappedBy = "likedPosts")
     private final Set<AppUser> usersThatLikedThePost = new HashSet<>();
@@ -45,11 +45,10 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, LocalDateTime createdAt, String content, int likesNumber) {
+    public Post(String title, LocalDateTime createdAt, String content) {
         this.title = title;
         this.createdAt = createdAt;
         this.content = content;
-        this.likesNumber = likesNumber;
     }
 
     public Long getId() {
@@ -102,6 +101,10 @@ public class Post {
 
     public void setLikesNumber(int likesNumber) {
         this.likesNumber = likesNumber;
+    }
+
+    public void addLike() {
+        likesNumber += 1;
     }
 
     @Override

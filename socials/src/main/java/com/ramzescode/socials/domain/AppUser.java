@@ -1,7 +1,6 @@
 package com.ramzescode.socials.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
 import java.util.*;
@@ -36,7 +35,7 @@ public class AppUser {
     @OneToOne(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private CV cv;
     @OneToMany(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private final List<Post> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
     @ManyToMany(
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
     )
@@ -45,9 +44,9 @@ public class AppUser {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "post_id")
     )
-    Set<Post> likedPosts = new HashSet<>();
+    private Set<Post> likedPosts = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "app_user_roles",
             joinColumns = @JoinColumn(name = "appuser_id"),
@@ -60,7 +59,14 @@ public class AppUser {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
 
+    public AppUser(String name, String username, String email, String password, Collection<Role> roles) {
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     public AppUser() {
@@ -75,6 +81,7 @@ public class AppUser {
 
     public void likePost(Post post) {
         post.getUsersThatLikedThePost().add(this);
+        post.addLike();
         likedPosts.add(post);
     }
 

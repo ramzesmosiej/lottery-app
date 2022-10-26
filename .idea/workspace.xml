@@ -5,16 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="commit test">
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/FollowingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/PostRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35999a54-a889-4122-ad8d-37e837445c57.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35999a54-a889-4122-ad8d-37e837445c57/storage_v2/_src_/database/socials.ptZ6hg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35999a54-a889-4122-ad8d-37e837445c57/storage_v2/_src_/database/socials.ptZ6hg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35999a54-a889-4122-ad8d-37e837445c57/storage_v2/_src_/database/socials.ptZ6hg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35999a54-a889-4122-ad8d-37e837445c57/storage_v2/_src_/database/socials.ptZ6hg/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/DTO/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/DTO/RegistrationRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/security/Permission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/security/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Following.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingRelationship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingRelationshipKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -58,32 +69,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/RMo/IdeaProjects/lottery-app/open-feign/pom.xml&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;83c6c6a46af60465d10e1cb27044dfad&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/Users/RMo/IdeaProjects/lottery-app/pom.xml",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "spring.configuration.checksum": "83c6c6a46af60465d10e1cb27044dfad"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\RMo\IdeaProjects\lottery-management" />
@@ -100,7 +111,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SocialsApplication">
+  <component name="RunManager" selected="Application.SocialsApplication">
+    <configuration name="SocialsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ramzescode.socials.SocialsApplication" />
+      <module name="socials" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ramzescode.socials.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -196,19 +220,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.lottery: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="lottery" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose.yml.notification: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -237,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SocialsApplication" />
         <item itemvalue="Docker.docker-compose.yml.kafka: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.zookeeper: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.notification: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.lottery: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +308,10 @@
       <workItem from="1666076800880" duration="38701000" />
       <workItem from="1666250041054" duration="63125000" />
       <workItem from="1666434772855" duration="6106000" />
-      <workItem from="1666444889474" duration="24465000" />
+      <workItem from="1666444889474" duration="28126000" />
+      <workItem from="1666596471273" duration="25956000" />
+      <workItem from="1666682434940" duration="17469000" />
+      <workItem from="1666767158332" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1665310275390</created>
@@ -345,19 +359,9 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtAuthenticationProvider.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java</url>
           <line>27</line>
           <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/controller/UserController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,4 @@
-package com.ramzescode.socials.controller;
-
+package com.ramzescode.socials.rest;
 
 import com.ramzescode.socials.DTO.LoginRequest;
 import com.ramzescode.socials.DTO.RegistrationRequest;
@@ -7,44 +6,33 @@ import com.ramzescode.socials.jwt.JwtUtil;
 import com.ramzescode.socials.service.ResponseService;
 import com.ramzescode.socials.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class UserController {
+@RequestMapping("/auth")
+public class AuthController {
 
     private final UserService userService;
 
-    private final JwtUtil jwtUtil;
-
     private final AuthenticationManager authenticationManager;
-    public UserController(UserService userService, JwtUtil jwtUtil ,AuthenticationManager authenticationManager
-    ) {
+
+    private final JwtUtil  jwtUtil;
+
+    public AuthController(UserService userService, AuthenticationManager authenticationManager, JwtUtil jwtUtil) {
         this.userService = userService;
-        this.jwtUtil = jwtUtil;
         this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
     }
 
-    @GetMapping("/users")
-    public ResponseEntity<ResponseService> findAllUsers() {
-        return ResponseEntity.ok(userService.findAll());
-    }
 
-    @GetMapping("users/{id}")
-    public ResponseEntity<ResponseService> findUserById(@PathVariable Long id ) {
-        return ResponseEntity.ok(userService.findUserById(id));
-    }
-
-    @PostMapping("/auth/signup")
-    @PreAuthorize("hasAuthority('user:write')")
+    @PostMapping("/signup")
     public ResponseEntity<ResponseService> registerUser(@RequestBody RegistrationRequest inputUser) {
-        return ResponseEntity.ok(userService.saveUser(inputUser));
+        return ResponseEntity.ok(userService.registerUser(inputUser));
     }
 
     @GetMapping("/ping")
@@ -52,7 +40,12 @@ public class UserController {
         return ResponseEntity.ok("hello");
     }
 
-    @PostMapping("/auth/login")
+    @GetMapping("/ping/admin")
+    public ResponseEntity<String> helloAdmin() {
+        return ResponseEntity.ok("hello admin");
+    }
+
+    @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest loginRequest) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
         authenticationManager.authenticate(token);
@@ -61,4 +54,6 @@ public class UserController {
         tokens.put("access_token", jwtToken);
         return ResponseEntity.ok(tokens);
     }
+
+
 }

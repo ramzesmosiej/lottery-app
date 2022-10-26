@@ -3,10 +3,10 @@ package com.ramzescode.socials.domain;
 import javax.persistence.*;
 
 @Entity
-public class Following {
+public class FollowingRelationship {
 
     @EmbeddedId
-    private FollowingKey id;
+    private FollowingRelationshipKey id = new FollowingRelationshipKey();
 
     @ManyToOne
     @MapsId("followerId")
@@ -18,19 +18,19 @@ public class Following {
     @JoinColumn(name = "following_id")
     AppUser following;
 
-    public Following() {
+    public FollowingRelationship() {
     }
 
-    public Following(AppUser follower, AppUser following) {
+    public FollowingRelationship(AppUser follower, AppUser following) {
         this.follower = follower;
         this.following = following;
     }
 
-    public FollowingKey getId() {
+    public FollowingRelationshipKey getId() {
         return id;
     }
 
-    public void setId(FollowingKey id) {
+    public void setId(FollowingRelationshipKey id) {
         this.id = id;
     }
 

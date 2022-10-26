@@ -3,7 +3,9 @@ package com.ramzescode.socials;
 import com.ramzescode.socials.domain.AppUser;
 import com.ramzescode.socials.domain.CV;
 import com.ramzescode.socials.domain.Post;
+import com.ramzescode.socials.domain.Role;
 import com.ramzescode.socials.repository.CVRepository;
+import com.ramzescode.socials.repository.RoleRepository;
 import com.ramzescode.socials.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +17,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class SocialsApplication {
@@ -29,29 +33,22 @@ public class SocialsApplication {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository, CVRepository cvRepository) {
+    CommandLineRunner commandLineRunner(UserRepository userRepository, CVRepository cvRepository, RoleRepository roleRepository) {
         return args -> {
-            userRepository.deleteAll();
-            cvRepository.deleteAll();
-            String name = "Ramzes Mosiej";
-            String username = "ramzesracer";
-            String password = bCryptPasswordEncoder.encode("password");
-            String email = "ramzes@gmail.com";
-            AppUser appUser = new AppUser(name, username, email, password);
-            Post post1 = new Post("post1", LocalDateTime.now(), "content1", 0);
-            appUser.addPost(post1);
-            appUser.addPost(new Post("post2", LocalDateTime.now(), "content2", 0));
-            appUser.addPost(new Post("post3", LocalDateTime.now(), "content3", 0));
-            appUser.setCv(new CV(appUser, 22, "email", "bio"));
-            appUser.likePost(post1);
-            userRepository.save(appUser);
+            Role adminRole = new Role("ROLE_ADMIN");
+            roleRepository.save(adminRole);
+            List<Role> adminRoles = new ArrayList<>();
+            adminRoles.add(adminRole);
+            AppUser adminUser = new AppUser("Ramzes Admin", "admin", "admin@gmail.com", bCryptPasswordEncoder.encode("admin"), adminRoles);
+//            userRepository.save(adminUser);
+//            userRepository.save(appUser);
 
 
             userRepository.findAll(Sort.by(Sort.Direction.ASC, "name").and(Sort.by(Sort.Direction.ASC, "password")))
                     .forEach(student -> System.out.println(student.getName() + student.getPassword()));
             PageRequest pageRequest = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
             Page<AppUser> page = userRepository.findAll(pageRequest);
-            System.out.println(page);
+            System.out.println(page.get());
         };
     }
 }

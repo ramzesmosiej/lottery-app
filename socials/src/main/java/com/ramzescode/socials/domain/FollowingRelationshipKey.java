@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class FollowingKey implements Serializable {
+public class FollowingRelationshipKey implements Serializable {
 
     @Column(name = "follower_id")
     private Long followerId;
@@ -14,10 +14,11 @@ public class FollowingKey implements Serializable {
     @Column(name = "following_id")
     private Long followingId;
 
-    public FollowingKey() {
+    public FollowingRelationshipKey() {
+
     }
 
-    public FollowingKey(Long followerId, Long followingId) {
+    public FollowingRelationshipKey(Long followerId, Long followingId) {
         this.followerId = followerId;
         this.followingId = followingId;
     }
@@ -42,7 +43,7 @@ public class FollowingKey implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        FollowingKey that = (FollowingKey) o;
+        FollowingRelationshipKey that = (FollowingRelationshipKey) o;
         return Objects.equals(followerId, that.followerId) && Objects.equals(followingId, that.followingId);
     }
 

@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RegistrationRequest {
     private String name;
-    private String surname;
+    private String username;
     private String email;
     private String password;
 
     public AppUser toUser() {
-        return new AppUser(name, surname, email, password);
+        return new AppUser(name, username, email, password);
     }
 }
