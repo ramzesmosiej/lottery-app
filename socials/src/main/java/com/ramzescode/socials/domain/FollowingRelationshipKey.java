@@ -15,7 +15,6 @@ public class FollowingRelationshipKey implements Serializable {
     private Long followingId;
 
     public FollowingRelationshipKey() {
-
     }
 
     public FollowingRelationshipKey(Long followerId, Long followingId) {
