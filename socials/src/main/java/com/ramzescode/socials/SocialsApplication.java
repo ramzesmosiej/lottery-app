@@ -18,7 +18,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class SocialsApplication {
@@ -39,7 +41,7 @@ public class SocialsApplication {
             AppUser adminUser = new AppUser("Ramzes Admin", "admin", "admin@gmail.com", bCryptPasswordEncoder.encode("admin"));
             if (userRepository.findAppUserByUsername(adminUser.getUsername()).isEmpty()) {
                 Role adminRole = new Role("ROLE_ADMIN");
-                List<Role> adminRoles = new ArrayList<>();
+                Set<Role> adminRoles = new HashSet<>();
                 adminRoles.add(adminRole);
                 adminUser.setRoles(adminRoles);
                 userRepository.save(adminUser);

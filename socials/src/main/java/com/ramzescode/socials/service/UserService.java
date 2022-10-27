@@ -2,17 +2,16 @@ package com.ramzescode.socials.service;
 
 import com.ramzescode.socials.DTO.RegistrationRequest;
 import com.ramzescode.socials.domain.AppUser;
+import com.ramzescode.socials.domain.Post;
 import com.ramzescode.socials.domain.Role;
+import com.ramzescode.socials.repository.FollowingRepository;
+import com.ramzescode.socials.repository.PostRepository;
 import com.ramzescode.socials.repository.UserRepository;
 import com.ramzescode.socials.rest.errors.LoginAlreadyUsedException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -21,9 +20,15 @@ public class UserService {
 
     private BCryptPasswordEncoder encoder;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder) {
+    private final PostRepository postRepository;
+
+    private final FollowingRepository followingRepository;
+
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder encoder, PostRepository postRepository, FollowingRepository followingRepository) {
         this.userRepository = userRepository;
         this.encoder = encoder;
+        this.postRepository = postRepository;
+        this.followingRepository = followingRepository;
     }
 
     public ResponseService findAll() {
@@ -76,13 +81,44 @@ public class UserService {
         else {
             AppUser appUserToSave = inputUser.toUser();
             appUserToSave.setPassword(encoder.encode(inputUser.getPassword()));
-            appUserToSave.setRoles(new ArrayList<>(List.of(new Role("ROLE_USER"))));
+            appUserToSave.setRoles(new HashSet<>(Set.of(new Role("ROLE_USER"))));
             return userRepository.save(appUserToSave);
         }
     }
 
     public void saveUser(AppUser user) {
         userRepository.save(user);
+    }
+
+    public void deleteUserByUsername(String username) {
+        userRepository.findAppUserByUsername(username).ifPresent(this::deleteUser);
+    }
+
+    /*
+    trying to avoid CascadeType.REMOVE and CascadeType.ALL,
+    cause the relationships with
+    post is @OneToMany and @ManyToMany with followers and postLikes.
+    Therefore, the implementation of removal of child entities is
+    done here by iterating over all of them.
+     */
+
+    private void deleteUser(AppUser user) {
+
+        postRepository.deleteAllByAppUser(user);
+
+        user.deleteAllPostLikes();
+        postRepository.findAll()
+                .forEach(post -> {
+                    post.deleteLikeByUsername(user.getUsername());
+                    postRepository.save(post);
+                });
+        followingRepository.findAll()
+                .stream()
+                .filter(followingRelationship -> followingRelationship.getFollower().getUsername().equals(user.getUsername()))
+                .filter(followingRelationship -> followingRelationship.getFollowing().getUsername().equals(user.getUsername()))
+                .forEach(followingRepository::delete);
+
+        userRepository.delete(user);
     }
 
 }

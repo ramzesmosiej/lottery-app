@@ -41,6 +41,10 @@ public class Post {
     @ManyToMany(mappedBy = "likedPosts")
     private final Set<AppUser> usersThatLikedThePost = new HashSet<>();
 
+    public void deleteLikeByUsername(String username) {
+        usersThatLikedThePost.removeIf(post -> post.getUsername().equals(username));
+    }
+
 
     public Post() {
     }

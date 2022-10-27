@@ -41,9 +41,9 @@ public class SingleUserNotificationFactory {
     public static SingleUserNotification createNotification(AppUser userToBeBlocked, NotificationType notificationType) {
         SingleUserNotification singleUserNotification = new SingleUserNotification();
         switch (notificationType) {
-            case ACCOUNT_BLOCKED -> {
+            case ACCOUNT_DELETED -> {
                 singleUserNotification.setReceiver(userToBeBlocked);
-                singleUserNotification.setMessage("Your account will be blocked");
+                singleUserNotification.setMessage("Your account will be deleted");
             }
             default -> throw new UnsupportedOperationException("Can not create notification for type : " + notificationType);
         }

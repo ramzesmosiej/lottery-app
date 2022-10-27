@@ -4,22 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="added notification entity and single user notification factory/entity">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="added notifications to controllers">
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/errors/BadRequestException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/enumeration/NotificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/enumeration/NotificationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/SingleUserNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/SingleUserNotification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/SingleUserNotificationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/SingleUserNotificationFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/NotificationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/SingleUserNotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/SingleUserNotificationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/FollowersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/FollowersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/jwt/JwtAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/jwt/JwtTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/jwt/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/errors/AdminController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/SingleUserNotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/SingleUserNotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666796892399</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added notifications to controllers">
+      <created>1666867490204</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666867490204</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +368,8 @@
     <MESSAGE value="commit test" />
     <MESSAGE value="added notiication entity and single user notification factory/entity" />
     <MESSAGE value="added notification entity and single user notification factory/entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="added notification entity and single user notification factory/entity" />
+    <MESSAGE value="added notifications to controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="added notifications to controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

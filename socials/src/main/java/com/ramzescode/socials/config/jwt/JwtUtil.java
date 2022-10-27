@@ -1,4 +1,4 @@
-package com.ramzescode.socials.jwt;
+package com.ramzescode.socials.config.jwt;
 
 
 import java.util.Calendar;

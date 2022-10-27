@@ -34,10 +34,10 @@ public class AppUser {
     private String password;
     @OneToOne(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private CV cv;
-    @OneToMany(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "appUser", orphanRemoval = true, cascade = {CascadeType.PERSIST})
     private List<Post> posts = new ArrayList<>();
     @ManyToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
+            cascade = CascadeType.PERSIST
     )
     @JoinTable(
             name = "post_likes",
@@ -46,13 +46,17 @@ public class AppUser {
     )
     private Set<Post> likedPosts = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "app_user_roles",
             joinColumns = @JoinColumn(name = "appuser_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Collection<Role> roles = new ArrayList<>();
+    private Set<Role> roles = new HashSet<>();
+
+    public void deleteAllPostLikes() {
+        likedPosts.clear();
+    }
 
     public AppUser(String name, String username, String email, String password) {
         this.name = name;
@@ -61,7 +65,7 @@ public class AppUser {
         this.password = password;
     }
 
-    public AppUser(String name, String username, String email, String password, Collection<Role> roles) {
+    public AppUser(String name, String username, String email, String password, Set<Role> roles) {
         this.name = name;
         this.username = username;
         this.email = email;
@@ -116,7 +120,7 @@ public class AppUser {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 

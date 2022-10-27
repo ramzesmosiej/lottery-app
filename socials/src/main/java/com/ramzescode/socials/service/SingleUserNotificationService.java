@@ -31,7 +31,7 @@ public class SingleUserNotificationService {
             case POST_LIKED -> createNotification((Post) notificationSubject,
                     notificationType);
             // account related
-            case ACCOUNT_BLOCKED -> createNotification((AppUser) notificationSubject,
+            case ACCOUNT_DELETED -> createNotification((AppUser) notificationSubject,
                     notificationType);
             default -> throw new UnsupportedOperationException("Can not create notification for type : " + notificationType);
         };

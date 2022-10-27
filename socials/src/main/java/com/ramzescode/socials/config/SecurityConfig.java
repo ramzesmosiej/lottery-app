@@ -1,7 +1,7 @@
 package com.ramzescode.socials.config;
 
-import com.ramzescode.socials.jwt.JwtAuthenticationProvider;
-import com.ramzescode.socials.jwt.JwtTokenFilter;
+import com.ramzescode.socials.config.jwt.JwtAuthenticationProvider;
+import com.ramzescode.socials.config.jwt.JwtTokenFilter;
 import com.ramzescode.socials.repository.UserRepository;
 import com.ramzescode.socials.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig {
 
     private final UserRepository userRepository;
