@@ -17,7 +17,6 @@ public class SingleUserNotificationFactory {
         switch (notificationType) {
             case GET_FOLLOWED -> {
                 singleUserNotification.setReceiver(following);
-                singleUserNotification.setAuthor(follower);
                 singleUserNotification.setMessage(NEW_FOLLOWER_NOTIFICATION_TEXT);
             }
             default -> throw new UnsupportedOperationException("Can not create notification for type : " + notificationType);
@@ -39,15 +38,14 @@ public class SingleUserNotificationFactory {
     }
 
     // can be performed by the user with role admin
-    public static SingleUserNotification createNotification(AppUser userToBeBlocked, NotificationType notificationType, AppUser author) {
+    public static SingleUserNotification createNotification(AppUser userToBeBlocked, NotificationType notificationType) {
         SingleUserNotification singleUserNotification = new SingleUserNotification();
         switch (notificationType) {
-            case GET_FOLLOWED -> {
+            case ACCOUNT_BLOCKED -> {
                 singleUserNotification.setReceiver(userToBeBlocked);
-                singleUserNotification.setAuthor(author);
-                singleUserNotification.setMessage(NEW_FOLLOWER_NOTIFICATION_TEXT);
+                singleUserNotification.setMessage("Your account will be blocked");
             }
-            default -> throw new UnsupportedOperationException("Your account will be blocked");
+            default -> throw new UnsupportedOperationException("Can not create notification for type : " + notificationType);
         }
         return singleUserNotification;
     }

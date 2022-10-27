@@ -49,6 +49,4 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
         return findById(id).orElseThrow(() -> new EntityNotFoundException("User", id));
     }
 
-
-
 }

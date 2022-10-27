@@ -5,6 +5,7 @@ import com.ramzescode.socials.domain.AppUser;
 import com.ramzescode.socials.domain.Post;
 import com.ramzescode.socials.repository.PostRepository;
 import com.ramzescode.socials.service.ResponseService;
+import com.ramzescode.socials.service.SingleUserNotificationService;
 import com.ramzescode.socials.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,12 @@ public class PostController {
 
     private final PostRepository postRepository;
 
-    public PostController(UserService userService, PostRepository postRepository) {
+    private final SingleUserNotificationService singleUserNotificationService;
+
+    public PostController(UserService userService, PostRepository postRepository, SingleUserNotificationService singleUserNotificationService) {
         this.userService = userService;
         this.postRepository = postRepository;
+        this.singleUserNotificationService = singleUserNotificationService;
     }
 
     @PostMapping
@@ -42,6 +46,7 @@ public class PostController {
         loggedUser.likePost(postToLike);
         postRepository.save(postToLike);
         userService.saveUser(loggedUser);
+        singleUserNotificationService.notifyUserAboutNewPostLike(postToLike);
         return ResponseEntity.ok(new ResponseService("success", "post liked", postToLike));
     }
 }

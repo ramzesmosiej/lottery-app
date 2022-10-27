@@ -46,7 +46,7 @@ public class AppUser {
     )
     private Set<Post> likedPosts = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinTable(
             name = "app_user_roles",
             joinColumns = @JoinColumn(name = "appuser_id"),

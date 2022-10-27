@@ -33,22 +33,17 @@ public class SocialsApplication {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository, CVRepository cvRepository, RoleRepository roleRepository) {
+    CommandLineRunner commandLineRunner(UserRepository userRepository, RoleRepository roleRepository) {
         return args -> {
-            Role adminRole = new Role("ROLE_ADMIN");
-            roleRepository.save(adminRole);
-            List<Role> adminRoles = new ArrayList<>();
-            adminRoles.add(adminRole);
-            AppUser adminUser = new AppUser("Ramzes Admin", "admin", "admin@gmail.com", bCryptPasswordEncoder.encode("admin"), adminRoles);
-            userRepository.save(adminUser);
 
-
-
-            userRepository.findAll(Sort.by(Sort.Direction.ASC, "name").and(Sort.by(Sort.Direction.ASC, "password")))
-                    .forEach(student -> System.out.println(student.getName() + student.getPassword()));
-            PageRequest pageRequest = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
-            Page<AppUser> page = userRepository.findAll(pageRequest);
-            System.out.println(page.get());
+            AppUser adminUser = new AppUser("Ramzes Admin", "admin", "admin@gmail.com", bCryptPasswordEncoder.encode("admin"));
+            if (userRepository.findAppUserByUsername(adminUser.getUsername()).isEmpty()) {
+                Role adminRole = new Role("ROLE_ADMIN");
+                List<Role> adminRoles = new ArrayList<>();
+                adminRoles.add(adminRole);
+                adminUser.setRoles(adminRoles);
+                userRepository.save(adminUser);
+            }
         };
     }
 }

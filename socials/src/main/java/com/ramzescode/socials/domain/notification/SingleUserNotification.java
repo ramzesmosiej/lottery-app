@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
-@DiscriminatorValue(value = "U")
+@DiscriminatorValue(value = "single_user")
 public class SingleUserNotification extends Notification {
     @ManyToOne
     private AppUser receiver;

@@ -3,6 +3,7 @@ package com.ramzescode.socials.jwt;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 
 import com.auth0.jwt.JWT;
@@ -30,7 +31,7 @@ public class JwtUtil {
         return JWT.create()
                 .withSubject(username)
                 .withClaim("roles", authoritiesService.getUserAuthorities(username))
-                .withExpiresAt(new Date(System.currentTimeMillis() + 5 * 60 * 1000))
+                .withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(30)))
                 .sign(algorithm);
     }
 

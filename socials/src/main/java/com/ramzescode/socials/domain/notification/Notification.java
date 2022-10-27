@@ -5,11 +5,11 @@ import com.ramzescode.socials.domain.AppUser;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
 @Entity
 @Table(name = "notification")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "discriminator", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue(value = "N")
+@DiscriminatorColumn(name = "notification_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Notification {
 
     @Id
@@ -29,10 +29,6 @@ public abstract class Notification {
 
     @Column(name = "notification_date")
     private LocalDateTime notificationDate;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private AppUser author;
 
     public Long getId() {
         return id;
@@ -58,22 +54,12 @@ public abstract class Notification {
         this.notificationDate = notificationDate;
     }
 
-    public AppUser getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(AppUser author) {
-        this.author = author;
-    }
-
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "Notification{" +
                 "id=" + id +
                 ", message='" + message + '\'' +
                 ", notificationDate=" + notificationDate +
-                ", author=" + author +
                 '}';
     }
 }

@@ -5,16 +5,25 @@ import com.ramzescode.socials.domain.FollowingRelationship;
 import com.ramzescode.socials.domain.Post;
 import com.ramzescode.socials.domain.enumeration.NotificationType;
 import com.ramzescode.socials.domain.notification.SingleUserNotification;
+import com.ramzescode.socials.repository.SingleUserNotificationRepository;
 import org.springframework.stereotype.Service;
 
+import static com.ramzescode.socials.domain.enumeration.NotificationType.GET_FOLLOWED;
+import static com.ramzescode.socials.domain.enumeration.NotificationType.POST_LIKED;
 import static com.ramzescode.socials.domain.notification.SingleUserNotificationFactory.createNotification;
 
 @Service
 public class SingleUserNotificationService {
 
-    private void notifyReceiverWithNotificationType(Object notificationSubject, NotificationType notificationType, AppUser author) {
+    private final SingleUserNotificationRepository singleUserNotificationRepository;
 
-        SingleUserNotification singleUserNotification = switch (notificationType) {
+    public SingleUserNotificationService(SingleUserNotificationRepository singleUserNotificationRepository) {
+        this.singleUserNotificationRepository = singleUserNotificationRepository;
+    }
+
+    private void notifyReceiverWithNotificationType(Object notificationSubject, NotificationType notificationType) {
+
+        var singleUserNotification = switch (notificationType) {
             // followers related
             case GET_FOLLOWED -> createNotification((FollowingRelationship) notificationSubject,
                     notificationType);
@@ -23,14 +32,27 @@ public class SingleUserNotificationService {
                     notificationType);
             // account related
             case ACCOUNT_BLOCKED -> createNotification((AppUser) notificationSubject,
-                    notificationType, author);
+                    notificationType);
             default -> throw new UnsupportedOperationException("Can not create notification for type : " + notificationType);
         };
         saveAndSend(singleUserNotification);
     }
 
-    private void saveAndSend(SingleUserNotification singleUserNotification) {
+    public void notifyUserAboutNewFollower(FollowingRelationship followingRelationship) {
+        notifyReceiverWithNotificationType(followingRelationship, GET_FOLLOWED);
+    }
 
+    public void notifyUserAboutNewPostLike(Post likedPost) {
+        notifyReceiverWithNotificationType(likedPost, POST_LIKED);
+    }
+
+    public void notifyUserAboutBlockingAccount() {
+        // TODO("finish method")
+    }
+
+    private void saveAndSend(SingleUserNotification singleUserNotification) {
+        singleUserNotificationRepository.save(singleUserNotification);
+        // TODO("add logic to send email")
     }
 
 }
