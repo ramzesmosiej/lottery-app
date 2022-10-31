@@ -5,5 +5,8 @@ public enum NotificationType {
     GET_FOLLOWED,
     ACCOUNT_DELETED,
 
-    ALL_USERS_GET_GIFT
+    ALL_USERS_GET_GIFT,
+
+    FOLLOWED_PERSON_ADDED_POST,
+    LIKED_POST_WAS_UPDATED,
 }

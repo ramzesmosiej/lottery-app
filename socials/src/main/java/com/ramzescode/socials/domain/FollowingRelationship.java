@@ -2,7 +2,8 @@ package com.ramzescode.socials.domain;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "FollowingRelationship")
+
 public class FollowingRelationship {
 
     @EmbeddedId

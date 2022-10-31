@@ -6,6 +6,7 @@ import com.ramzescode.socials.repository.UserRepository;
 import com.ramzescode.socials.rest.errors.BadRequestException;
 import com.ramzescode.socials.service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/admin")
 public class AdminController {
 

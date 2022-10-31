@@ -1,6 +1,7 @@
 package com.ramzescode.socials.repository;
 
 import com.ramzescode.socials.domain.AppUser;
+import com.ramzescode.socials.domain.Post;
 import com.ramzescode.socials.rest.errors.EntityNotFoundException;
 import com.ramzescode.socials.security.SecurityUtils;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -49,4 +51,9 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
         return findById(id).orElseThrow(() -> new EntityNotFoundException("User", id));
     }
 
+    @Query("SELECT u FROM AppUser u INNER JOIN Post p ON u.id = p.appUser AND p.id = ?1")
+    List<AppUser> findAllUsersThatLikedThePost(Long id);
+
+    @Query("SELECT u FROM AppUser u INNER JOIN FollowingRelationship f ON u.id = f.follower AND f.following = ?1")
+    List<AppUser> findAllUsersThatFollowThatUser(Long id);
 }

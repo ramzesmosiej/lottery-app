@@ -2,6 +2,7 @@ package com.ramzescode.socials.service;
 
 import com.ramzescode.socials.DTO.RegistrationRequest;
 import com.ramzescode.socials.domain.AppUser;
+import com.ramzescode.socials.domain.FollowingRelationship;
 import com.ramzescode.socials.domain.Post;
 import com.ramzescode.socials.domain.Role;
 import com.ramzescode.socials.repository.FollowingRepository;
@@ -10,8 +11,10 @@ import com.ramzescode.socials.repository.UserRepository;
 import com.ramzescode.socials.rest.errors.LoginAlreadyUsedException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -59,8 +62,7 @@ public class UserService {
             response.setStatus("success");
             response.setMessage("User found");
             response.setPayload(userOptional.get());
-        }
-        else {
+        } else {
             response.setStatus("fail");
             response.setMessage("User with id: " + id + " not found");
             response.setPayload(null);
@@ -77,8 +79,7 @@ public class UserService {
         Optional<AppUser> userOptional = userRepository.findAppUserByUsername(inputUser.getUsername());
         if (userOptional.isPresent()) {
             throw new LoginAlreadyUsedException(inputUser.getUsername());
-        }
-        else {
+        } else {
             AppUser appUserToSave = inputUser.toUser();
             appUserToSave.setPassword(encoder.encode(inputUser.getPassword()));
             appUserToSave.setRoles(new HashSet<>(Set.of(new Role("ROLE_USER"))));
@@ -90,6 +91,7 @@ public class UserService {
         userRepository.save(user);
     }
 
+    @Transactional
     public void deleteUserByUsername(String username) {
         userRepository.findAppUserByUsername(username).ifPresent(this::deleteUser);
     }
@@ -102,23 +104,24 @@ public class UserService {
     done here by iterating over all of them.
      */
 
+    @Transactional
     private void deleteUser(AppUser user) {
 
         postRepository.deleteAllByAppUser(user);
-
         user.deleteAllPostLikes();
+
         postRepository.findAll()
                 .forEach(post -> {
                     post.deleteLikeByUsername(user.getUsername());
                     postRepository.save(post);
                 });
-        followingRepository.findAll()
+        List<FollowingRelationship> recordsToDelete = followingRepository.findAll()
                 .stream()
-                .filter(followingRelationship -> followingRelationship.getFollower().getUsername().equals(user.getUsername()))
-                .filter(followingRelationship -> followingRelationship.getFollowing().getUsername().equals(user.getUsername()))
-                .forEach(followingRepository::delete);
+                .filter(followingRelationship -> followingRelationship.getFollower().getUsername().equals(user.getUsername()) || followingRelationship.getFollowing().getUsername().equals(user.getUsername()))
+                .collect(Collectors.toList());
 
-        userRepository.delete(user);
+        followingRepository.deleteAll(recordsToDelete);
+
+        userRepository.deleteUserById(user.getId());
     }
-
 }

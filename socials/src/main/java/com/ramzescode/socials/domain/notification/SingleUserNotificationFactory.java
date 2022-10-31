@@ -11,11 +11,10 @@ public class SingleUserNotificationFactory {
     private static final String NEW_FOLLOWER_NOTIFICATION_TEXT = "You have a new follower";
 
     public static SingleUserNotification createNotification(FollowingRelationship followingRelationship, NotificationType notificationType) {
-        AppUser follower = followingRelationship.getFollower();
-        AppUser following = followingRelationship.getFollowing();
         SingleUserNotification singleUserNotification = new SingleUserNotification();
         switch (notificationType) {
             case GET_FOLLOWED -> {
+                AppUser following = followingRelationship.getFollowing();
                 singleUserNotification.setReceiver(following);
                 singleUserNotification.setMessage(NEW_FOLLOWER_NOTIFICATION_TEXT);
             }

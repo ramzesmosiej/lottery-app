@@ -43,6 +43,7 @@ public class Post {
 
     public void deleteLikeByUsername(String username) {
         usersThatLikedThePost.removeIf(post -> post.getUsername().equals(username));
+        likesNumber = usersThatLikedThePost.size();
     }
 
 

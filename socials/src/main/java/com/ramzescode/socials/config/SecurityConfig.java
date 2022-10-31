@@ -22,17 +22,26 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig {
 
-    private final UserRepository userRepository;
+    private static final String[] PERMITTED = {
+            "/auth/login",
+            "/auth/signup",
+            "/auth/ping",
+            "/v3/api-docs",
+            "/v3/api-docs.yaml",
+            "/swagger-resources/**",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/webjars/**"
+    };
 
-    private final UserDetailsServiceImpl userDetailsService;
+    private final UserRepository userRepository;
 
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
 
     private final JwtTokenFilter jwtTokenFilter;
 
-    public SecurityConfig(UserRepository userRepository, UserDetailsServiceImpl userDetailsService, JwtAuthenticationProvider jwtAuthenticationProvider, JwtTokenFilter jwtTokenFilter) {
+    public SecurityConfig(UserRepository userRepository, JwtAuthenticationProvider jwtAuthenticationProvider, JwtTokenFilter jwtTokenFilter) {
         this.userRepository = userRepository;
-        this.userDetailsService = userDetailsService;
         this.jwtAuthenticationProvider = jwtAuthenticationProvider;
         this.jwtTokenFilter = jwtTokenFilter;
     }
@@ -44,7 +53,7 @@ public class SecurityConfig {
         http.cors().and()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .antMatchers("/auth/login", "/auth/signup", "/auth/ping").permitAll()
+                .antMatchers(PERMITTED).permitAll()
                 .antMatchers("/ping/admin").hasRole("ADMIN")
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -4,23 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="added notifications to controllers">
-      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/errors/BadRequestException.java" afterDir="false" />
+    <list default="true" id="59300adf-fda8-4e0f-a66c-41e08ffd076c" name="Changes" comment="modified group notification service">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_github_classgraph_classgraph_4_8_149.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_annotations_2_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_core_2_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_models_2_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_common_1_6_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_ui_1_6_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springdoc_springdoc_openapi_webmvc_core_1_6_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_swagger_ui_4_14_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_webjars_locator_core_0_50.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/enumeration/GroupNotificationTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/GroupNotification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/GroupNotificationFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/GroupNotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/GroupNotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/SocialsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/socials/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingRelationship.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/FollowingRelationship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/enumeration/NotificationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/enumeration/NotificationType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/SingleUserNotificationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/domain/notification/SingleUserNotificationFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/jwt/JwtAuthenticationProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/jwt/JwtTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/config/jwt/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/errors/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/SingleUserNotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/SingleUserNotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/SingleUserNotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/SingleUserNotificationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/rest/PostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +89,7 @@
     "ToolWindowRun.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "C:/Users/RMo/IdeaProjects/Artemis",
+    "last_opened_file_path": "C:/Users/RMo/IdeaProjects/lottery-app",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
@@ -343,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666867490204</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="modify user service to also delete his likes, post and follows given">
+      <created>1666902369099</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666902369099</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +389,9 @@
     <MESSAGE value="added notiication entity and single user notification factory/entity" />
     <MESSAGE value="added notification entity and single user notification factory/entity" />
     <MESSAGE value="added notifications to controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="added notifications to controllers" />
+    <MESSAGE value="modify user service to also delete his likes, post and follows given" />
+    <MESSAGE value="modified group notification service" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified group notification service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -384,11 +406,10 @@
           <line>49</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/socials/src/main/java/com/ramzescode/socials/service/UserDetailsServiceImpl.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="18" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
