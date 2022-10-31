@@ -40,7 +40,7 @@ public class PostController {
         ResponseService response = new ResponseService("success", "post created", postToCreate);
         postRepository.save(postToCreate);
         userService.saveUser(loggedUser);
-//        groupNotificationService.notifyFollowersAboutNewPost(loggedUser);
+        groupNotificationService.notifyFollowersAboutNewPost(loggedUser);
         return ResponseEntity.ok(response);
     }
 
@@ -58,7 +58,7 @@ public class PostController {
     @PutMapping
     public ResponseEntity<Post> updatePost(@RequestBody Post post) {
         Post updatedPost = postService.updatePost(post);
-//        groupNotificationService.notifyAboutPostUpdate(updatedPost);
+        groupNotificationService.notifyAboutPostUpdate(updatedPost);
         return ResponseEntity.ok(updatedPost);
 
     }

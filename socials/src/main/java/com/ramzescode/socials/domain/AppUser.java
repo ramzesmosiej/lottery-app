@@ -147,4 +147,19 @@ public class AppUser {
     public void setCv(CV cv) {
         this.cv = cv;
     }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", cv=" + cv +
+                ", posts=" + posts +
+                ", likedPosts=" + likedPosts +
+                ", roles=" + roles +
+                '}';
+    }
 }

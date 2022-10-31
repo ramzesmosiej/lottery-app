@@ -7,6 +7,7 @@ import com.ramzescode.socials.domain.enumeration.NotificationType;
 import com.ramzescode.socials.domain.notification.GroupNotification;
 import com.ramzescode.socials.repository.GroupNotificationRepository;
 import com.ramzescode.socials.repository.UserRepository;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -58,7 +59,7 @@ public class GroupNotificationService {
 
     private List<AppUser> createGroup(GroupNotificationTarget group, Post notificationSubject) {
         return switch (group) {
-            case USERS_THAT_LIKED_POST -> userRepository.findAllUsersThatLikedThePost(notificationSubject.getId());
+            case USERS_THAT_LIKED_POST -> notificationSubject.getUsersThatLikedThePost().stream().toList();
             default -> throw new UnsupportedOperationException("Group unknown: " + group);
         };
     }
@@ -72,6 +73,10 @@ public class GroupNotificationService {
 
     private void saveAndSendToGroup(GroupNotification groupNotification, List<AppUser> targetGroup) {
         groupNotificationRepository.save(groupNotification);
+        System.out.print(groupNotification);
+        for (AppUser user : targetGroup) {
+            System.out.println(user.getId());
+        }
         log.debug("Sending email to each user in the group : {}", targetGroup);
     }
 

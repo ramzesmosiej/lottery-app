@@ -51,9 +51,6 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
         return findById(id).orElseThrow(() -> new EntityNotFoundException("User", id));
     }
 
-    @Query("SELECT u FROM AppUser u INNER JOIN Post p ON u.id = p.appUser AND p.id = ?1")
-    List<AppUser> findAllUsersThatLikedThePost(Long id);
-
-    @Query("SELECT u FROM AppUser u INNER JOIN FollowingRelationship f ON u.id = f.follower AND f.following = ?1")
+    @Query("SELECT u FROM AppUser u INNER JOIN FollowingRelationship f ON u.id = f.follower.id AND f.following.id = ?1")
     List<AppUser> findAllUsersThatFollowThatUser(Long id);
 }

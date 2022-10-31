@@ -25,7 +25,7 @@ public class SingleUserNotificationService {
 
         var singleUserNotification = switch (notificationType) {
             // followers related
-            case GET_FOLLOWED -> createNotification((FollowingRelationship) notificationSubject,
+            case GET_FOLLOWED  -> createNotification((FollowingRelationship) notificationSubject,
                     notificationType);
             // post_related
             case POST_LIKED -> createNotification((Post) notificationSubject,
